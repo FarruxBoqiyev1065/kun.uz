@@ -5,6 +5,7 @@ import dasturlash.uz.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -16,22 +17,33 @@ public class ProfileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
+
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column
+
+    @Column(name = "surname", nullable = false)
     private String surname;
-    @Column
-    private String phone;
-    @Column
-    private String email;
-    @Column
+
+    @Column(name = "username", nullable = false)
+    private String username;// 1213
+
+    @Column(name = "password", nullable = false)
     private String password;
-    @Column
+
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     private Status status;
-    @Column
-    private Role role;
-    @Column
+
+    @Column(name = "photo_id")
+    private String photoId; // Will do it later (in attach topic)
+
+    @Column(name = "visible", nullable = false)
+    private Boolean visible = true;
+
+    @CreationTimestamp
+    @Column(name = "created_date")
     private LocalDateTime createdDate;
-    @Column
-    private Boolean visible = Boolean.TRUE;
+
+    @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
+    private List<ProfileRoleEntity> roleList;
 }
