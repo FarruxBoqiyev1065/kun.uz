@@ -1,5 +1,5 @@
 package dasturlash.uz.enums;
 
 public enum Status {
-    CREATED, UPDATED, DELETED
+    ACTIVE, NOT_ACTIVE, BLOCKED
 }
