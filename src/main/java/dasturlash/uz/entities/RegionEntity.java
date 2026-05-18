@@ -3,6 +3,7 @@ package dasturlash.uz.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -14,18 +15,26 @@ public class RegionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
-    private Integer order_number;
-    @Column
+
+    @Column(name = "order_number")
+    private Integer orderNumber;
+
+    @Column(name = "name_uz")
     private String nameUz;
-    @Column
+
+    @Column(name = "name_ru")
     private String nameRu;
-    @Column
+
+    @Column(name = "name_en")
     private String nameEn;
-    @Column
-    private Boolean visible = Boolean.TRUE;
-    @Column
-    private String key;
-    @Column
+
+    @Column(name = "region_key")
+    private String regionKey;
+
+    @Column(name = "visible")
+    private Boolean visible = true;
+
+    @Column(name = "created_date")
+    @CreationTimestamp
     private LocalDateTime createdDate;
 }
