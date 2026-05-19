@@ -6,7 +6,6 @@ import dasturlash.uz.entities.ProfileEntity;
 import dasturlash.uz.enums.Status;
 import dasturlash.uz.exceptions.BadRequestException;
 import dasturlash.uz.reposiroty.ProfileRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
