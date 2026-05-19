@@ -1,0 +1,35 @@
+### create region
+POST http://localhost:8080/api/v1/region
+Content-Type: application/json
+
+{
+  "name": "Andijon",
+  "nameUz": "Andijon",
+  "nameRu": "Андижан",
+  "nameEn": "Andijan",
+  "regionKey": "andijon",
+  "orderNumber": 13
+}
+
+### update region
+PUT http://localhost:8080/api/v1/region/13
+Content-Type: application/json
+
+{
+  "name": "Andijon",
+  "nameUz": "Andijon",
+  "nameRu": "Андижан",
+  "nameEn": "Andijan",
+  "regionKey": "andijon",
+  "orderNumber": 13
+}
+
+### get region list
+GET http://localhost:8080/api/v1/region
+
+### delete region
+DELETE http://localhost:8080/api/v1/region/7
+
+### get region by lang
+GET http://localhost:8080/api/v1/region/lang
+Accept-Language: RU
