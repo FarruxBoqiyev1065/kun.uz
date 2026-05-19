@@ -1,6 +1,7 @@
 package dasturlash.uz.service;
 
 import dasturlash.uz.dto.ProfileDto;
+import dasturlash.uz.dto.ProfileUpdateDto;
 import dasturlash.uz.entities.ProfileEntity;
 import dasturlash.uz.enums.Status;
 import dasturlash.uz.exceptions.BadRequestException;
@@ -64,7 +65,7 @@ public class ProfileService {
                 () -> new BadRequestException("Profile not found"));
     }
 
-    public ProfileDto update(Integer id, @Valid ProfileDto dto) {
+    public ProfileDto update(Integer id, ProfileUpdateDto dto) {
         ProfileEntity entity = get(id);
         Optional<ProfileEntity> optional = repository.findByUsernameAndVisibleIsTrue(dto.getUsername());
         if (optional.isPresent() && !optional.get().getId().equals(id)) {
@@ -80,5 +81,12 @@ public class ProfileService {
         ProfileDto response = toDTO(entity);
         response.setRoleList(dto.getRoleList());
         return response;
+    }
+
+    public Boolean delete(Integer id) {
+        ProfileEntity entity = get(id);
+        entity.setVisible(Boolean.FALSE);
+        repository.save(entity);
+        return Boolean.TRUE;
     }
 }
