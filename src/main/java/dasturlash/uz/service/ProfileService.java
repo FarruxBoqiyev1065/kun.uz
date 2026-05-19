@@ -8,9 +8,12 @@ import dasturlash.uz.exceptions.BadRequestException;
 import dasturlash.uz.reposiroty.ProfileRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -88,5 +91,16 @@ public class ProfileService {
         entity.setVisible(Boolean.FALSE);
         repository.save(entity);
         return Boolean.TRUE;
+    }
+
+    public PageImpl<ProfileDto> pagination(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+        Page<ProfileEntity> result = repository.findAllWithRoles(pageable);
+
+        List<ProfileDto> dtoList = new LinkedList<>();
+        for (ProfileEntity entity : result.getContent()) {
+            dtoList.add(toDTO(entity));
+        }
+        return new PageImpl<>(dtoList, pageable, result.getTotalElements());
     }
 }
