@@ -5,6 +5,7 @@ import dasturlash.uz.entities.ProfileEntity;
 import dasturlash.uz.enums.Status;
 import dasturlash.uz.exceptions.BadRequestException;
 import dasturlash.uz.reposiroty.ProfileRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -61,5 +62,23 @@ public class ProfileService {
     private ProfileEntity get(Integer id) {
         return repository.findByIdAndVisibleIsTrue(id).orElseThrow(
                 () -> new BadRequestException("Profile not found"));
+    }
+
+    public ProfileDto update(Integer id, @Valid ProfileDto dto) {
+        ProfileEntity entity = get(id);
+        Optional<ProfileEntity> optional = repository.findByUsernameAndVisibleIsTrue(dto.getUsername());
+        if (optional.isPresent() && !optional.get().getId().equals(id)) {
+            throw new BadRequestException("Username exists");
+        }
+        entity.setName(dto.getName());
+        entity.setSurname(dto.getSurname());
+        entity.setUsername(dto.getUsername());
+        repository.save(entity);
+        // add user roles
+        profileRoleService.merge(entity.getId(), dto.getRoleList());
+
+        ProfileDto response = toDTO(entity);
+        response.setRoleList(dto.getRoleList());
+        return response;
     }
 }
