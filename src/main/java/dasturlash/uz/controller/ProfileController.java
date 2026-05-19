@@ -1,6 +1,7 @@
 package dasturlash.uz.controller;
 
 import dasturlash.uz.dto.ProfileDto;
+import dasturlash.uz.dto.ProfileUpdateDto;
 import dasturlash.uz.service.ProfileService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,12 @@ public class ProfileController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProfileDto> update(@PathVariable Integer id, @Valid @RequestBody ProfileDto dto){
+    public ResponseEntity<ProfileDto> update(@PathVariable Integer id, @Valid @RequestBody ProfileUpdateDto dto){
         return ResponseEntity.ok(service.update(id, dto));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable Integer id){
+        return ResponseEntity.ok(service.delete(id));
     }
 }
