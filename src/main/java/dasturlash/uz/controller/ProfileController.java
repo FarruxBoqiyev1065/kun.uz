@@ -23,4 +23,9 @@ public class ProfileController {
     public ResponseEntity<ProfileDto> getById(@PathVariable Integer id){
         return ResponseEntity.ok(service.getById(id));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProfileDto> update(@PathVariable Integer id, @Valid @RequestBody ProfileDto dto){
+        return ResponseEntity.ok(service.update(id, dto));
+    }
 }
