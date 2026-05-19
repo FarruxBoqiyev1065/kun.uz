@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "profiles")
@@ -34,8 +35,8 @@ public class ProfileEntity {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column(name = "photo_id")
-    private String photoId; // Will do it later (in attach topic)
+//    @Column(name = "photo_id")
+//    private String photoId; // Will do it later (in attach topic)
 
     @Column(name = "visible", nullable = false)
     private Boolean visible = true;
