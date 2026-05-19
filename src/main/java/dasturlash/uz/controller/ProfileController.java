@@ -3,8 +3,10 @@ package dasturlash.uz.controller;
 import dasturlash.uz.dto.ProfileDto;
 import dasturlash.uz.dto.ProfileUpdateDto;
 import dasturlash.uz.service.ProfileService;
+import dasturlash.uz.util.PageUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,5 +35,11 @@ public class ProfileController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Integer id){
         return ResponseEntity.ok(service.delete(id));
+    }
+
+    @GetMapping("/pagenation")
+    public ResponseEntity<PageImpl<ProfileDto>> pagination(@RequestParam(value = "page", defaultValue = "1") int page,
+                                               @RequestParam(value = "size", defaultValue = "10") int size){
+        return ResponseEntity.ok(service.pagination(PageUtil.page(page), size));
     }
 }
