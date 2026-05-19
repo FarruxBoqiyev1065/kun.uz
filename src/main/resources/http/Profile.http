@@ -13,4 +13,20 @@ Content-Type: application/json
 }
 
 ### get profile by id
-GET http://localhost:8080/api/v1/profile/2
+GET http://localhost:8080/api/v1/profile/1
+
+### update profile by id
+PUT http://localhost:8080/api/v1/profile/2
+Content-Type: application/json
+
+{
+  "name": "Olim",
+  "surname": "Rajabov",
+  "username": "olimjon",
+  "roleList": [
+    "USER"
+  ]
+}
+
+### delete profile by id
+DELETE http://localhost:8080/api/v1/profile/2
