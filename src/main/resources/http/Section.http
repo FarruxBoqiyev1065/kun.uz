@@ -1,0 +1,33 @@
+### create section
+POST http://localhost:8080/api/v1/section
+Content-Type: application/json
+
+{
+  "orderNumber": 5,
+  "nameUz": "Asosiy5",
+  "nameRu": "Основной5",
+  "nameEn": "Main5",
+  "sectionKey": "main5"
+}
+
+### update section
+PUT http://localhost:8080/api/v1/section/1
+Content-Type: application/json
+
+{
+  "orderNumber": 1,
+  "nameUz": "Asosiy11",
+  "nameRu": "Основной11",
+  "nameEn": "Main11",
+  "sectionKey": "main1"
+}
+
+### delete section
+DELETE http://localhost:8080/api/v1/section/3
+
+### get section list
+GET http://localhost:8080/api/v1/section
+
+### get section by lang
+GET http://localhost:8080/api/v1/section/lang
+Accept-Language: EN
