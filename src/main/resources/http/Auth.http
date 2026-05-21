@@ -1,0 +1,25 @@
+### Registration using Email
+POST localhost:8080/api/v1/auth/registration
+Content-Type: application/json
+
+{
+  "name": "Farrux",
+  "surname": "Boqiyev",
+  "username": "bigmangcom@gmail.com",
+  "password": "1065"
+}
+
+### Email registration confirm
+GET http://localhost:8080/api/v1/auth/registration/email/verification/bigmangcom@gmail.com/91557
+
+
+
+### Login
+POST localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "bigmangcom@gmail.com",
+  "password": "12345"
+}
+
