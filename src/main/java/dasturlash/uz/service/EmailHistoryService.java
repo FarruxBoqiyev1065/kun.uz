@@ -1,7 +1,7 @@
 package dasturlash.uz.service;
 
 import dasturlash.uz.entities.EmailHistoryEntity;
-import dasturlash.uz.reposiroty.EmailHistoryRepository;
+import dasturlash.uz.repository.EmailHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

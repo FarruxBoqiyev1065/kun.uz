@@ -3,7 +3,7 @@ package dasturlash.uz.service;
 import dasturlash.uz.dto.AttachDTO;
 import dasturlash.uz.entities.AttachEntity;
 import dasturlash.uz.exceptions.BadRequestException;
-import dasturlash.uz.reposiroty.AttachRepository;
+import dasturlash.uz.repository.AttachRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;

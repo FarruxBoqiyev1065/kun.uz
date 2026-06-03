@@ -5,7 +5,7 @@ import dasturlash.uz.entities.RegionEntity;
 import dasturlash.uz.enums.Languages;
 import dasturlash.uz.exceptions.BadRequestException;
 import dasturlash.uz.mapper.RegionMapper;
-import dasturlash.uz.reposiroty.RegionRepository;
+import dasturlash.uz.repository.RegionRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

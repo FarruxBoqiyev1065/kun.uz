@@ -2,8 +2,7 @@ package dasturlash.uz.service;
 
 import dasturlash.uz.entities.ProfileRoleEntity;
 import dasturlash.uz.enums.Role;
-import dasturlash.uz.reposiroty.ProfileRoleRepository;
-import jakarta.validation.constraints.NotEmpty;
+import dasturlash.uz.repository.ProfileRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

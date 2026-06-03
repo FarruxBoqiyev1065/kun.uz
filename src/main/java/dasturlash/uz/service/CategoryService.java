@@ -3,7 +3,7 @@ package dasturlash.uz.service;
 import dasturlash.uz.dto.CategoryDto;
 import dasturlash.uz.entities.CategoryEntity;
 import dasturlash.uz.exceptions.BadRequestException;
-import dasturlash.uz.reposiroty.CategoryRepository;
+import dasturlash.uz.repository.CategoryRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

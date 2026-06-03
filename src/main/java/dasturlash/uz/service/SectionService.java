@@ -4,7 +4,7 @@ import dasturlash.uz.dto.SectionDto;
 import dasturlash.uz.entities.SectionEntity;
 import dasturlash.uz.exceptions.BadRequestException;
 import dasturlash.uz.mapper.SectionMapper;
-import dasturlash.uz.reposiroty.SectionRepository;
+import dasturlash.uz.repository.SectionRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package dasturlash.uz.reposiroty;
+package dasturlash.uz.repository;
 
 import dasturlash.uz.entities.ProfileRoleEntity;
 import dasturlash.uz.enums.Role;
