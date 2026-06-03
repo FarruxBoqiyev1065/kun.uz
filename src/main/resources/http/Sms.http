@@ -1,0 +1,21 @@
+### auth
+POST https://notify.eskiz.uz/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "19mrasul@gmail.com",
+  "password": "9ilaGqr.."
+}
+
+
+
+### SEND sms
+POST https://notify.eskiz.uz/api/message/sms/send
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODE3OTM3NTgsImlhdCI6MTc3OTIwMTc1OCwicm9sZSI6InVzZXIiLCJzaWduIjoiYWQ3ZmZkZjg1NWE5NmJiYjkxYWNiNGM5Y2VjZDliMWYxMDlmOThkN2QxNDc5NGJhN2M0ZmIwODhmOTBiNTMyNiIsInN1YiI6IjEwMzMifQ.dCZjkzuJ4Fa1MxAYYFLm9wgSbEsLbI_qOecZJmCUuEM
+
+{
+  "mobile_phone": "+998935224774",
+  "message": "Tizimga kirish uchun tastiqlash kodi: 123123",
+  "from": 4546
+}
