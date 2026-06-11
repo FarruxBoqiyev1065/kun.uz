@@ -41,7 +41,7 @@ public class EmailSenderService {
                 "</head>\n" +
                 "<body>\n" +
                 "\n" +
-                "<h1 style=\"text-align: center\">Kunuz Portaliga xush kelibsiz.</h1>\n" +
+                "<h1 style=\"text-align: center\">Kun.uz portaliga xush kelibsiz.</h1>\n" +
                 "<br>\n" +
                 "<h4>Ro'yhatdan o'tishni tugatish uchun  tastiqlash code: </h4>\n" +
                 " <p> <b>%d</b> </p>" +
