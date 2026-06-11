@@ -9,6 +9,6 @@ import lombok.Setter;
 public class AuthDto {
     @NotBlank(message = "username required")
     private String username;
-    @NotBlank(message = "pswd required")
+    @NotBlank(message = "password required")
     private String password;
 }
