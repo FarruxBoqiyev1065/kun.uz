@@ -32,4 +32,6 @@ public class ProfileDto {
     private List<Role> roleList;
 
     private LocalDateTime createdDate;
+
+    private String jwt;
 }
