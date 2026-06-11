@@ -2,6 +2,7 @@ package dasturlash.uz.service.custom;
 
 import dasturlash.uz.config.CustomUserDetails;
 import dasturlash.uz.entities.ProfileEntity;
+import dasturlash.uz.enums.Status;
 import dasturlash.uz.exceptions.BadRequestException;
 import dasturlash.uz.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         ProfileEntity profile = optional.get();
         return new CustomUserDetails(
                 profile.getId(),
-                profile.getName(),
-                profile.getSurname(),
                 profile.getUsername(),
                 profile.getPassword(),
+                profile.getStatus(),
                 profile.getRoleList()
         );
     }
