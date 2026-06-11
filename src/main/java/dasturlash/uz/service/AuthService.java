@@ -8,6 +8,7 @@ import dasturlash.uz.enums.Role;
 import dasturlash.uz.enums.Status;
 import dasturlash.uz.exceptions.BadRequestException;
 import dasturlash.uz.repository.ProfileRepository;
+import dasturlash.uz.util.JwtUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -91,6 +92,7 @@ public class AuthService {
         response.setSurname(entity.getSurname());
         response.setUsername(entity.getUsername());
         response.setRoleList(profileRoleService.getByProfileId(entity.getId()));
+        response.setJwt(JwtUtil.encode(entity.getUsername(), response.getRoleList().toString()));
         return response;
     }
 }
