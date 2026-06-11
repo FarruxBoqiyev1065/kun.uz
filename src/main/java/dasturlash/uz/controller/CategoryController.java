@@ -15,22 +15,22 @@ public class CategoryController {
     @Autowired
     private CategoryService service;
 
-    @PostMapping("")
+    @PostMapping("/admin")
     public ResponseEntity<CategoryDto> create(@Valid @RequestBody CategoryDto dto) {
         return ResponseEntity.ok(service.create(dto));
     }
 
-    @GetMapping("")
+    @GetMapping("/admin")
     public ResponseEntity<List<CategoryDto>> all(){
         return ResponseEntity.ok(service.getAll());
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/admin/{id}")
     public ResponseEntity<CategoryDto> update(@PathVariable Integer id, @Valid @RequestBody CategoryDto newDto){
         return ResponseEntity.ok(service.update(id, newDto));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Integer id){
         return ResponseEntity.ok(service.delete(id));
     }

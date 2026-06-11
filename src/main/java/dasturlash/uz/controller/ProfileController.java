@@ -16,7 +16,7 @@ public class ProfileController {
     @Autowired
     private ProfileService service;
 
-    @PostMapping("")
+    @PostMapping("/admin")
     public ResponseEntity<ProfileDto> create(@Valid @RequestBody ProfileDto dto){
         ProfileDto result = service.create(dto);
         return ResponseEntity.ok(result);
@@ -27,17 +27,17 @@ public class ProfileController {
         return ResponseEntity.ok(service.getById(id));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/admin/{id}")
     public ResponseEntity<ProfileDto> update(@PathVariable Integer id, @Valid @RequestBody ProfileUpdateDto dto){
         return ResponseEntity.ok(service.update(id, dto));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Integer id){
         return ResponseEntity.ok(service.delete(id));
     }
 
-    @GetMapping("/pagenation")
+    @GetMapping("/admin/pagenation")
     public ResponseEntity<PageImpl<ProfileDto>> pagination(@RequestParam(value = "page", defaultValue = "1") int page,
                                                @RequestParam(value = "size", defaultValue = "10") int size){
         return ResponseEntity.ok(service.pagination(PageUtil.page(page), size));

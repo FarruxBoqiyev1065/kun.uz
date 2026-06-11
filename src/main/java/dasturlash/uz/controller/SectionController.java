@@ -15,12 +15,12 @@ public class SectionController {
     @Autowired
     private SectionService service;
 
-    @PostMapping("")
+    @PostMapping("/admin")
     public ResponseEntity<SectionDto> create(@Valid @RequestBody SectionDto dto){
         return ResponseEntity.ok(service.create(dto));
     }
 
-    @GetMapping("")
+    @GetMapping("/admin")
     public ResponseEntity<List<SectionDto>> getAll(){
         return ResponseEntity.ok(service.getAll());
     }
@@ -30,12 +30,12 @@ public class SectionController {
         return ResponseEntity.ok(service.getAllByLang(language));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/admin/{id}")
     public ResponseEntity<SectionDto> update(@PathVariable Integer id, @Valid @RequestBody SectionDto newDto){
         return ResponseEntity.ok(service.update(id, newDto));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Integer id){
         return ResponseEntity.ok(service.delete(id));
     }
