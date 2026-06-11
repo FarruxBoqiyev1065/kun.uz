@@ -13,8 +13,8 @@ Content-Type: application/json
 }
 
 ### get profile by id
-GET http://localhost:8080/api/v1/profile/21
-Authorization: Basic b2xpbTE5OjE5
+GET http://localhost:8080/api/v1/profile/32
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiW1VTRVJdIiwic3ViIjoiZmJvcWl5ZXYxMDY1QG1haWwucnUiLCJpYXQiOjE3ODExOTEzODQsImV4cCI6MTc4MTI3Nzc4NH0.Vrrt5TMR2DcVZlzRC27CSOUVIJ2w1qcaz35Yb3sNuz4y8BSj9QsHWJR8E-pzSRPPepy7ga6YPBD22TTOGDFa4Q
 
 ### update profile by id
 PUT http://localhost:8080/api/v1/profile/2
@@ -30,7 +30,7 @@ Content-Type: application/json
 }
 
 ### delete profile by id
-DELETE http://localhost:8080/api/v1/profile/2
+DELETE http://localhost:8080/api/v1/profile/29
 
 ### get profile with pagination
 GET http://localhost:8080/api/v1/profile/pagenation?page=0&size=10
