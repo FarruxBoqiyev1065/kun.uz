@@ -3,10 +3,14 @@ package dasturlash.uz.controller;
 import dasturlash.uz.exceptions.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+@ControllerAdvice
 public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
+
     @ExceptionHandler({RuntimeException.class})
     public ResponseEntity<String> handle(RuntimeException e) {
         e.printStackTrace();
@@ -16,5 +20,10 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<String> handle(BadRequestException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<?> handle(UsernameNotFoundException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
     }
 }
