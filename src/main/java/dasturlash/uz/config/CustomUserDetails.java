@@ -2,6 +2,7 @@ package dasturlash.uz.config;
 
 import dasturlash.uz.entities.ProfileRoleEntity;
 import dasturlash.uz.enums.Role;
+import dasturlash.uz.enums.Status;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,23 +10,24 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
     private Integer id;
-    private String name;
-    private String surname;
     private String username;
     private String password;
-    private List<ProfileRoleEntity> roleList;
+    private Status status;
+    private List<SimpleGrantedAuthority> roles;
 
-    public CustomUserDetails(Integer id, String name, String surname, String username, String password, List<ProfileRoleEntity> roleList) {
+    public CustomUserDetails(Integer id, String username, String password, Status status, List<ProfileRoleEntity> roleList) {
         this.id = id;
-        this.name = name;
-        this.surname = surname;
         this.username = username;
         this.password = password;
-        this.roleList = roleList;
+        this.status = status;
+        List<SimpleGrantedAuthority> roles = new LinkedList<>();
+        roleList.forEach(role -> roles.add(new SimpleGrantedAuthority(role.getRoles().name())));
+        this.roles = roles;
     }
 
     @Override
@@ -50,9 +52,9 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<SimpleGrantedAuthority> list = new ArrayList<>();
-        list.add(new SimpleGrantedAuthority(Role.USER.name()));
-        return list;
+//        List<SimpleGrantedAuthority> list = new ArrayList<>();
+//        list.add(new SimpleGrantedAuthority(Role.USER.name()));
+        return roles;
     }
 
     @Override
