@@ -3,17 +3,18 @@ POST http://localhost:8080/api/v1/profile
 Content-Type: application/json
 
 {
-  "name": "Olim17",
-  "surname": "Rajabov17",
-  "username": "olim17",
-  "password": "17",
+  "name": "Olim19",
+  "surname": "Rajabov19",
+  "username": "olim19",
+  "password": "19",
   "roleList": [
     "USER"
   ]
 }
 
 ### get profile by id
-GET http://localhost:8080/api/v1/profile/1
+GET http://localhost:8080/api/v1/profile/21
+Authorization: Basic b2xpbTE5OjE5
 
 ### update profile by id
 PUT http://localhost:8080/api/v1/profile/2
